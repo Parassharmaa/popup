@@ -29,8 +29,9 @@ function pload() {
 			document.getElementById('statusid').innerHTML= "Scan Complete. <br><span class='ion-alert-circled'> </span>  3 Errors Found.";
 			$('#statusAfter').slideDown(100);
 			$(".scanwrap").hide();
-			window.navigator.vibrate(200); // vibrate for 200ms
-			window.navigator.vibrate([100,30,100,30,100,200,200,30,200,30,200,200,100,30,100,30,100]);
+			navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+			navigator.vibrate(200); // vibrate for 200ms
+			navigator.vibrate([100,30,100,30,100,200,200,30,200,30,200,200,100,30,100,30,100]);
         } else {
             width++; 
             loader.style.width = width + '%'; 
